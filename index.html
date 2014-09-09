@@ -194,288 +194,43 @@
 						</aside>
 					</section>
 
-					<section>
-						<h2>Web Audio Editor</h2>
+          <section>
+            <h2>Web Audio Editor</h2>
 
-						<img src="images/editor-screen.png">
+            <img src="images/editor-screen.png">
 
-						<aside class="notes">
-							<p>Demo: show track layout, each track has different type, name the three types</p>
-							<p>Control buttons on the top, timeline, skip things</p>
-							<p>control elements for each track</p>
-							<p>canvas previews in the track elements</p>
-						</aside>
-					</section>
+            <aside class="notes">
+              <p>Demo: show track layout, each track has different type, name the three types</p>
+              <p>Control buttons on the top, timeline, skip things</p>
+              <p>control elements for each track</p>
+              <p>canvas previews in the track elements</p>
+            </aside>
+          </section>
 
-				</section>
+          <section>
+            <h2>Wait, there's one more thing:</h2>
 
-				<section>
+            <div class="fragment">
+              <h2 class="highlight">Collaboration</h2>
+              <img src="images/DifferentialSynchronization.jpg" width="600"/>
+            </div>
 
-					<section>
-						<h2>Recording</h2>
+          </section>
 
-						<ul class="spaced">
-							<li class="fragment">Record audio</li>
-							<li class="fragment">Get live audio feedback for adjustments</li>
-							<li class="fragment">Upload recordings to server</li>
-							<li class="fragment">Select parts of audio</li>
-							<li class="fragment">Import audio files</li>
-						</ul>
+          <section>
+            <ul class="spaced">
+              <li>Remote band brainstorming</li>
+              <li class="fragment">Auto-save and auto-backup</li>
+              <li class="fragment">sadly not offline...(sorry, Team Hoodie)</li>
+            </ul>
+          </section>
 
+          <section>
 
-					</section>
+            <h2><a href="http://web-audio-editor.herokuapp.com/me" target="_blank">Demo Time</a></h2>
 
-					<section>
-						<h2>Recording Screenshot</h2>
+          </section>
 
-						<img src="images/recording-a-signal.png" width="600">
-
-					</section>
-
-					<section>
-						<h2>Recording Node Graph</h2>
-
-						<img src="images/Recording.png" width="700" />
-
-						<aside class="notes">
-							<p>Web Audio nodes in combination with other new web tech</p>
-							<p>This is why you can't use it in IE, all modern web APIs in one place ;)</p>
-						</aside>
-
-					</section>
-				</section>
-
-
-				<section>
-
-					<section>
-						<h2>Drums</h2>
-
-						<ul class="spaced">
-							<li class="fragment">Full control over speed and sounds</li>
-							<li class="fragment">Complex and varying drum loops</li>
-							<li class="fragment">Different drum sets</li>
-							<li class="fragment">Exact (!!!) timing</li>
-						</ul>
-
-					</section>
-
-					<section>
-						<h2>Drums Screenshot</h2>
-
-						<img src="images/drum-edit.png">
-
-					</section>
-
-					<section>
-						<h2>Web Audio Timing</h2>
-
-
-						<ul class="spaced">
-							<li class="fragment">No <code>setTimeout/setInterval</code></li>
-							<li class="fragment">Imagine a Joey Jordison based on JS-timing...oh my...</li>
-							<li class="fragment">Own timing system in Web Audio API</li>
-						</ul>
-
-						<pre class="fragment"><code>  var node = context.createBufferSource();
-
-  node.start(when, offset, duration);
-</code></pre>
-
-
-						<aside class="notes">
-
-						</aside>
-
-					</section>
-				</section>
-
-				<section>
-
-					<section>
-						<h2>Synthesizer</h2>
-
-						<img src="images/minimoog.jpg" width="700" data-source="http://createdigitalmusic.com/files/2010/10/minimoogcloseup.jpg">
-
-						<aside class="notes">
-							<p>consists of oscillators, filters and gain control, all present in web audio api</p>
-							<p>Minimoog</p>
-						</aside>
-
-					</section>
-
-					<section>
-						<h2>Oscillators</h2>
-						<img src="images/sinewave.gif" data-source="http://televandalist.com/post/49335582926/61-hertz-sine-wave-tone-at-60fps">
-					</section>
-
-					<section>
-					<h2>Oscillators</h2>
-
-					<div>
-						<input type="range" id="oscRange" value="200" min="0" max="2000" />
-						<select id="oscSelect">
-							<option value="0">Sine</option>
-							<option value="1">Square</option>
-							<option value="2">Sawtooth</option>
-							<option value="3">Triangle</option>
-						</select>
-						<button id="playFromRange">Play</button>
-						<button id="oscStop">Stop</button>
-					</div>
-
-					<aside class="notes">
-						<p>there are several forms of waves: sine, sawtooth, triangle</p>
-					</aside>
-
-				</section>
-
-				<script type="text/javascript">
-					var oscContext = new webkitAudioContext();
-					var oscOscillator = null;
-					var oscSelect = document.getElementById('oscSelect');
-					var oscRange = document.getElementById('oscRange');
-
-					var playOsc = function(frequency){
-						stopOsc();
-						oscOscillator = oscContext.createOscillator();
-						oscOscillator.type = parseInt(oscSelect.value);
-						oscOscillator.frequency.value = frequency;
-						oscOscillator.connect(oscContext.destination);
-						oscOscillator.noteOn(0);
-					};
-
-					var stopOsc = function(){
-						if(oscOscillator) oscOscillator.noteOff(0);
-						oscOscillator = null;
-					};
-
-					document.getElementById('playFromRange').addEventListener('click', function(){
-						playOsc(200, oscRange.value);
-					});
-
-					document.getElementById('oscStop').addEventListener('click', function(){
-						stopOsc();
-					});
-
-					oscSelect.addEventListener('change', function(){
-						if(oscOscillator) oscOscillator.type = parseInt(this.value);
-					});
-
-					oscRange.addEventListener('change', function(){
-						if(oscOscillator) oscOscillator.frequency.value = this.value;
-					});
-
-				</script>
-
-					<section>
-						<h2>Synthesizer Node Graph</h2>
-
-						<img src="images/SynthesizerNodeGraph.png" width="900" />
-
-
-						<aside class="notes">
-
-						</aside>
-
-					</section>
-
-					<section>
-						<h2>Envelope</h2>
-
-						<img src="images/ADSR_parameter.png" width="800" />
-
-						<aside class="notes">
-
-						</aside>
-
-					</section>
-
-					<section>
-						<h2>Synthesizer Screenshot</h2>
-
-						<img src="images/synth-settings.png">
-
-					</section>
-				</section>
-
-
-
-				<section>
-
-					<section>
-						<h2>Collaboration</h2>
-
-						<ul class="spaced">
-							<li class="fragment">First thought: simple, lock all the things!</li>
-							<li class="fragment">Hinders creative process</li>
-							<li class="fragment">Frustrating</li>
-							<li class="fragment">Inconsistency problems</li>
-						</ul>
-
-					</section>
-
-					<section>
-						<h2>Operational Transformation</h2>
-
-						<img src="images/OperationalTransformation.jpg" width="500"/>
-
-					</section>
-
-					<section>
-						<h2>Operational Transformation</h2>
-
-						<ul class="spaced">
-							<li class="fragment">De-facto standard (Google Drive, SubEthaEdit...)</li>
-							<li class="fragment">Lots of research</li>
-							<li class="fragment"><a href="http://sharejs.org/">ShareJS</a> <3 </li>
-							<li class="fragment">uber-complicated, many edge-cases</li>
-						</ul>
-
-					</section>
-
-					<section>
-						<h2>Differential Synchronization</h2>
-
-						<img src="images/DifferentialSynchronization.jpg" width="600"/>
-
-					</section>
-
-					<section>
-						<h2>Differential Synchronization</h2>
-
-						<ul class="spaced">
-							<li class="fragment">Much simpler* and solves many edge-cases</li>
-							<li class="fragment">Less features</li>
-							<li class="fragment">Works like a charm with Angular.JS (for me™)</li>
-							<li class="fragment">Almost no custom code in Controllers needed</li>
-						</ul>
-
-					</section>
-
-					<section>
-						<h2>Why collaboration?</h2>
-
-						<ul class="spaced">
-							<li class="fragment">Remote band brainstorming</li>
-							<li class="fragment">Easier melody brainstorming</li>
-							<li class="fragment">Auto-save and auto-backup</li>
-							<li class="fragment">sadly not offline...</li>
-						</ul>
-
-					</section>
-
-				</section>
-
-				<section>
-					<h2>There's so much more</h2>
-
-					<ul class="spaced">
-						<li class="fragment">Smart scheduling algorithm</li>
-						<li class="fragment">Arrangement export</li>
-						<li class="fragment">Custom synchronization protocol</li>
-						<li class="fragment">More that did not fit into 20 minutes</li>
-					</ul>
 				</section>
 
 				<section>
