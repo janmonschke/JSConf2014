@@ -38,9 +38,12 @@ window.BufferHandler = {
 
   stop: function(id){
     try{
-      this.playing[id].stop();
+      if(this.playing[id])
+        this.playing[id].stop(0);
     }catch(e){
       // boooom
+      debugger
+      console.log(e)
     }
   }
 }
