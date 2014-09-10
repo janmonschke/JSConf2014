@@ -11,10 +11,13 @@ nx.onload = function(){
 
 
   $.when.apply($, [background, ksch, gogo, dommmdoo]).done(function(){
-    console.log('done')
+    matrix1.row = 2;
+    matrix1.draw();
+    matrix1.col = 4;
+    matrix1.draw();
     button1.response = function(data){
       if(data.press)
-        BufferHandler.play(ksch);
+        BufferHandler.play(dommmdoo);
       console.log(data)
     }
     //
