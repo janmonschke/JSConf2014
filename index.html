@@ -248,7 +248,7 @@
         <section>
           <h2>The Glitch Mob</h2>
 
-          <img src="images/theglitchmob.gif" width="700" />
+          <video src="images/theglitchmob.webm" autoplay controls loop width="700"></video>
 
           <p>explain the setup while gif or video is playing</p>
           <p>TODO: should I add a diagram of the setup?</p>
@@ -258,7 +258,7 @@
         <section>
           <h2>Broken Haze</h2>
 
-          <img src="images/brokenhaze.gif" width="700" />
+          <video src="images/brokenhaze.webm" autoplay loop width="700"></video>
 
           <p>explain the broken haze setup</p>
 
@@ -352,6 +352,12 @@
 			// document.getElementById('playWith2sdelay').addEventListener('click', function(){
 			// 	playBuffer('rick', 2, 0, 15);
 			// });
+
+      // simply click the videos to play them if they stopped
+      var videos = document.querySelectorAll('video');
+      for(var i = 0; i < videos.length; i++){
+        videos[i].addEventListener('click', function(){ this.play(); })
+      };
 
 		</script>
 
