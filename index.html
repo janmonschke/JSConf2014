@@ -48,7 +48,7 @@
 				<section>
 					<h2>Me: Jan Monschke</h2>
 
-					<p><a href="https://twitter.com/thedeftone">@thedeftone</a>, <a href="http://janmonschke.com">janmonschke.com</a></p>
+					<p><a href="https://twitter.com/thedeftone" target="_blank">@thedeftone</a>, <a href="http://janmonschke.com" target="_blank">janmonschke.com</a></p>
 					<p>Frontend Developer from Berlin</p>
 					<div class="fragment">
 						<p>Not really a musical background but</p>
@@ -277,10 +277,10 @@
 				<section>
 					<h1>THX so much for your attention!</h1>
 
-					<p><a href="http://cl.ly/1H111o1w1Z0T">Read my thesis to dive deeper into the topics</a></p>
-					<p><a href="https://github.com/janmonschke">Source code for editor will soon be released</a></p>
-          <p><a href="https://soundcloud.com/theglitchmob">Check out <span class="highlight">The Glitch Mob</span></a></p>
-          <p><a href="https://soundcloud.com/brokenhaze">Check out <span class="highlight">Broken Haze</span></a></p>
+					<p><a href="http://cl.ly/1H111o1w1Z0T" target="_blank">Read my thesis to dive deeper into the topics</a></p>
+					<p><a href="https://github.com/janmonschke" target="_blank">Source code for editor will soon be released</a></p>
+          <p><a href="https://soundcloud.com/theglitchmob" target="_blank">Check out <span class="highlight">The Glitch Mob</span></a></p>
+          <p><a href="https://soundcloud.com/brokenhaze" target="_blank">Check out <span class="highlight">Broken Haze</span></a></p>
 
 				</section>
 
@@ -356,6 +356,7 @@
       // simply click the videos to play them if they stopped
       var videos = document.querySelectorAll('video');
       for(var i = 0; i < videos.length; i++){
+        debugger
         videos[i].addEventListener('click', function(){ this.play(); })
       };
 
