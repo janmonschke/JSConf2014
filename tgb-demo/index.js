@@ -9,4 +9,6 @@ $.when.apply($, [background, ksch, gogo, dommmdoo]).done(function(){
   BufferHandler.play(ksch);
   BufferHandler.play(gogo);
   BufferHandler.play(dommmdoo);
+
+
 });
