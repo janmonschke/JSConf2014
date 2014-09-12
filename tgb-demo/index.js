@@ -13,12 +13,14 @@ nx.onload = function(){
   var guit3 = 'audio/guit3-1.mp3';
 
   var jzbg = 'audio/jzbg.mp3';
+  var tiktak = 'audio/tiktak.mp3';
 
 
   $.when.apply($, [ BufferHandler.load(guit1),
                     BufferHandler.load(guit2),
                     BufferHandler.load(guit3),
-                    BufferHandler.load(jzbg)]).done(function(){
+                    BufferHandler.load(jzbg),
+                    BufferHandler.load(tiktak)]).done(function(){
     // matrix1.row = 2;
     // matrix1.draw();
     // matrix1.col = 4;
@@ -42,29 +44,26 @@ nx.onload = function(){
         BufferHandler.play(guit3);
     }
 
-    var bg1Playing = false;
-
+    // starts jay z bg
     button4.response = function(data){
       if(data.press){
         BufferHandler.stop(jzbg);
         BufferHandler.play(jzbg, {loop: true});
       }
-
-        return
-        if(bg1Playing){
-          bg1Playing = false;
-          BufferHandler.stop(jzbg);
-        }else{
-          bg1Playing = true;
-          BufferHandler.play(jzbg, {loop: true});
-        }
     }
 
+    // stops the jay z bg
     button5.response = function(data){
       if(data.press)
         BufferHandler.stop(jzbg);
     }
 
+    button6.response = function(data){
+      if(data.press){
+        BufferHandler.stop(tiktak);
+        BufferHandler.play(tiktak, {loop: true});
+      }
+    }
     //
     // BufferHandler.play(gogo);
     // BufferHandler.play(dommmdoo);
