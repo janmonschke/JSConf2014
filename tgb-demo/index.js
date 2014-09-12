@@ -60,6 +60,11 @@ nx.onload = function(){
         }
     }
 
+    button5.response = function(data){
+      if(data.pres)
+        BufferHandler.stop(jzbg);
+    }
+
     //
     // BufferHandler.play(gogo);
     // BufferHandler.play(dommmdoo);
