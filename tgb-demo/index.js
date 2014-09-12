@@ -2,36 +2,41 @@ nx.onload = function(){
 
   nx.sendsTo("local");
 
-  var background = BufferHandler.load('audio/background.mp3').done(function(id){ background = id;});
-  var ksch = BufferHandler.load('audio/kschhh.mp3').done(function(id){ ksch = id;});
-  var gogo = BufferHandler.load('audio/gogogogo.mp3').done(function(id){ gogo = id;});
-  var dommmdoo = BufferHandler.load('audio/dommmdoo.mp3').done(function(id){ dommmdoo = id;});
-  var wowow = BufferHandler.load('audio/wowwowwow-2.mp3').done(function(id){ wowow = id;});
+  var background = 'audio/background.mp3';
+  var ksch = 'audio/kschhh.mp3';
+  var gogo = 'audio/gogogogo.mp3';
+  var dommmdoo = 'audio/dommmdoo-2.mp3';
+  var wowow = 'audio/dodomdodom.mp3';
+
+  var guit1 = 'audio/guit1.mp3';
+  var guit2 = 'audio/guit2.mp3';
+  var guit3 = 'audio/guit3.mp3';
 
 
-
-  $.when.apply($, [background, ksch, gogo, dommmdoo]).done(function(){
+  $.when.apply($, [ BufferHandler.load(guit1),
+                    BufferHandler.load(guit2),
+                    BufferHandler.load(guit3)]).done(function(){
     // matrix1.row = 2;
     // matrix1.draw();
     // matrix1.col = 4;
     // matrix1.draw();
     button1.response = function(data){
       if(data.press){
-        BufferHandler.stop(dommmdoo);
-        BufferHandler.play(dommmdoo);
+        BufferHandler.stop(guit1);
+        BufferHandler.play(guit1);
       }
     }
 
     button2.response = function(data){
       if(data.press){
-        BufferHandler.stop(wowow);
-        BufferHandler.play(wowow);
+        BufferHandler.stop(guit2);
+        BufferHandler.play(guit2);
       }
     }
 
     button3.response = function(data){
       if(data.press)
-        BufferHandler.play(ksch);
+        BufferHandler.play(guit3);
     }
 
     //
