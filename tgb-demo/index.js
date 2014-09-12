@@ -64,6 +64,11 @@ nx.onload = function(){
         BufferHandler.play(tiktak, {loop: true});
       }
     }
+
+    button7.response = function(data){
+      if(data.press)
+        BufferHandler.stop(tiktak);
+    }
     //
     // BufferHandler.play(gogo);
     // BufferHandler.play(dommmdoo);
