@@ -45,7 +45,12 @@ nx.onload = function(){
     var bg1Playing = false;
 
     button4.response = function(data){
-      if(data.press)
+      if(data.press){
+        BufferHandler.stop(jzbg);
+        BufferHandler.play(jzbg, {loop: true});
+      }
+
+        return
         if(bg1Playing){
           bg1Playing = false;
           BufferHandler.stop(jzbg);
