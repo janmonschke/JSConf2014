@@ -12,10 +12,13 @@ nx.onload = function(){
   var guit2 = 'audio/guit2-1.mp3';
   var guit3 = 'audio/guit3-1.mp3';
 
+  var jzbg = 'audio/jzbg.mp3';
+
 
   $.when.apply($, [ BufferHandler.load(guit1),
                     BufferHandler.load(guit2),
-                    BufferHandler.load(guit3)]).done(function(){
+                    BufferHandler.load(guit3),
+                    BufferHandler.load(jzbg)]).done(function(){
     // matrix1.row = 2;
     // matrix1.draw();
     // matrix1.col = 4;
@@ -37,6 +40,19 @@ nx.onload = function(){
     button3.response = function(data){
       if(data.press)
         BufferHandler.play(guit3);
+    }
+
+    var bg1Playing = false;
+
+    button4.response = function(data){
+      if(data.press)
+        if(bg1Playing){
+          bg1Playing = false;
+          BufferHandler.stop(jzbg);
+        }else{
+          bg1Playing = true;
+          BufferHandler.play(jzbg, {loop: true});
+        }
     }
 
     //
