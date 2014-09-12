@@ -8,9 +8,9 @@ nx.onload = function(){
   var dommmdoo = 'audio/dommmdoo-2.mp3';
   var wowow = 'audio/dodomdodom.mp3';
 
-  var guit1 = 'audio/guit1.mp3';
-  var guit2 = 'audio/guit2.mp3';
-  var guit3 = 'audio/guit3.mp3';
+  var guit1 = 'audio/guit1-1.mp3';
+  var guit2 = 'audio/guit2-1.mp3';
+  var guit3 = 'audio/guit3-1.mp3';
 
 
   $.when.apply($, [ BufferHandler.load(guit1),
