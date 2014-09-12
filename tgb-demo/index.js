@@ -14,13 +14,18 @@ nx.onload = function(){
 
   var jzbg = 'audio/jzbg.mp3';
   var tiktak = 'audio/tiktak.mp3';
-
+  var whenipretend = 'audio/whenipretend.mp3';
+  var lying = 'audio/lying.mp3';
+  var trying = 'audio/trying.mp3';
 
   $.when.apply($, [ BufferHandler.load(guit1),
                     BufferHandler.load(guit2),
                     BufferHandler.load(guit3),
                     BufferHandler.load(jzbg),
-                    BufferHandler.load(tiktak)]).done(function(){
+                    BufferHandler.load(tiktak),
+                    BufferHandler.load(whenipretend),
+                    BufferHandler.load(lying),
+                    BufferHandler.load(trying)]).done(function(){
     // matrix1.row = 2;
     // matrix1.draw();
     // matrix1.col = 4;
@@ -68,6 +73,25 @@ nx.onload = function(){
     button7.response = function(data){
       if(data.press)
         BufferHandler.stop(tiktak);
+    }
+
+    button8.response = function(data){
+      if(data.press)
+        BufferHandler.play(whenipretend);
+    }
+
+    button9.response = function(data){
+      if(data.press){
+        BufferHandler.stop(trying);
+        BufferHandler.play(trying);
+      }
+    }
+
+    button10.response = function(data){
+      if(data.press){
+        BufferHandler.stop(lying);
+        BufferHandler.play(lying);
+      }
     }
     //
     // BufferHandler.play(gogo);
