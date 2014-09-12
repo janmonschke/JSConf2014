@@ -61,7 +61,7 @@ nx.onload = function(){
     }
 
     button5.response = function(data){
-      if(data.pres)
+      if(data.press)
         BufferHandler.stop(jzbg);
     }
 
