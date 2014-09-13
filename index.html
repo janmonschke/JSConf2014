@@ -248,32 +248,37 @@
         <section>
           <h2>The Glitch Mob</h2>
 
-          <video src="images/theglitchmob.webm" autoplay controls loop width="700"></video>
+          <video src="images/theglitchmob.webm" autoplay controls loop width="100%"></video>
 
-          <p>explain the setup while gif or video is playing</p>
-          <p>TODO: should I add a diagram of the setup?</p>
-          <!--img src="TODO CREATE THE GLITCH MOB GIF" width="600" /-->
         </section>
 
         <section>
-        <img src="images/theglitchmob.svg" width="95%">
+          <img src="images/theglitchmob.svg" width="95%">
+        </section>
+
+        <section>
+          <h2>Broken Haze</h2>
+
+          <video src="images/brokenhaze.webm" autoplay loop width="95%"></video>
+
         </section>
 
         <section>
 
           <h1>Web MIDI</h1>
 
-          <!-- <p>MIDI != MIDI songs</p>
-          <p>MIDI = protocol for digital 'instruments'</p>
-          <p>show midi logo</p>
-          <p>say that I didnt have time to prepare a MIDI band performance</p> -->
+          <ul class="spaced">
+            <li class="fragment">MIDI != MIDI background songs</li>
+            <li class="fragment">Protocol for digital 'instruments'</li>
+            <li class="fragment">Early stage API</li>
+          </ul>
 
         </section>
 
         <section>
-          <h2>MIDIAppy</h2>
-          <img src="images/midiappy.png" width="600" id="midiappy">
-          <video src="images/midiappy.webm" autoplay loop width="700" id="midiappyVideo" style="display: none;"></video>
+          <h2><span class="highlight"><3 Japan for</span> MIDIAppy</h2>
+          <img src="images/midiappy.png" class="fragment" id="midiappy">
+          <video src="images/midiappy.webm" autoplay loop id="midiappyVideo" style="display: none; margin: 0 auto; width: 95%"></video>
         </section>
 
         <script type="text/javascript">
@@ -286,22 +291,22 @@
         </script>
 
         <section>
-          <h2>Broken Haze</h2>
 
-          <video src="images/brokenhaze.webm" autoplay loop width="700"></video>
-
-          <p>explain the broken haze setup</p>
+          <h2>JS Live performances</h2>
 
         </section>
 
         <section>
-
-
-
+          <img src="images/rejectjs.png" />
         </section>
 
         <section>
-          Explain my previous gigs (Rejectjs 2013 and The Semicolons)
+          <img src="images/the-semicolons.png" />
+        </section>
+
+        <section>
+
+          <img src="images/jsconf.jpg" />
 
         </section>
 
@@ -397,7 +402,6 @@
       // simply click the videos to play them if they stopped
       var videos = document.querySelectorAll('video');
       for(var i = 0; i < videos.length; i++){
-        debugger
         videos[i].addEventListener('click', function(){ this.play(); })
       };
 
