@@ -65,11 +65,12 @@ nx.onload = function(){
         BufferHandler.play(guit4);
     }
 
+    var filter = null;
     // starts jay z bg
     button5.response = function(data){
       if(data.press){
         BufferHandler.stop(jzbg);
-        BufferHandler.play(jzbg, {loop: true});
+        filter = BufferHandler.play(jzbg, {loop: true, filter: true});
       }
     }
 
@@ -121,6 +122,12 @@ nx.onload = function(){
 
     slider1.val = 0;
     slider1.draw();
+
+    slider1.response = function(val){
+      if(filter){
+        filter.frequency.value = 3000 * val;
+      }
+    }
 
     slider2.val = 1;
     slider2.draw();

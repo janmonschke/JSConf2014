@@ -32,10 +32,21 @@ window.BufferHandler = {
     var source = this.context.createBufferSource();
     source.buffer = this.cache[id];
     if(options.loop) source.loop = true;
-    source.connect(this.context.destination);
+
+    var filter = null;
+
+    if(options.filter){
+      filter = this.context.createBiquadFilter();
+      filter.type = 'highpass';
+      source.connect(filter);
+      filter.connect(this.context.destination);
+    }else{
+      source.connect(this.context.destination);
+    }
 
     source.start(0);
     this.playing[id] = source;
+    return filter;
   },
 
   stop: function(id){
