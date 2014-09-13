@@ -103,13 +103,17 @@ nx.onload = function(){
       if(data.press){
         BufferHandler.stop(trying);
         BufferHandler.play(trying);
+        document.body.style.display = 'none';
+        setTimeout(function(){
+          document.body.style.display = 'block';
+        }, 2500)
       }
     }
 
     button11.response = function(data){
       if(data.press){
-        BufferHandler.stop(lying);
-        BufferHandler.play(lying);
+        BufferHandler.stop(trying);
+        BufferHandler.play(trying);
       }
     }
 
