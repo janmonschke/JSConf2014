@@ -120,11 +120,10 @@ nx.onload = function(){
       }
     }
 
-    slider1.val = 0;
+    slider1.val = 0.0;
     slider1.draw();
 
     slider1.response = function(val){
-      if(filter){
         filter.frequency.value = 3000 * val;
       }
     }

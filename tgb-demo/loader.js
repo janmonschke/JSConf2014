@@ -38,6 +38,7 @@ window.BufferHandler = {
     if(options.filter){
       filter = this.context.createBiquadFilter();
       filter.type = 'highpass';
+      filter.frequency.value = 0.0;
       source.connect(filter);
       filter.connect(this.context.destination);
     }else{
