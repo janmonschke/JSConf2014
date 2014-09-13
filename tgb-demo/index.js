@@ -117,6 +117,10 @@ nx.onload = function(){
       if(data.press){
         BufferHandler.stop(end);
         BufferHandler.play(end);
+        document.getElementById('deftones').style.display = 'block';
+        setTimeout(function(){
+          document.getElementById('deftones').style.display = 'none';
+        }, 2000)
       }
     }
 
