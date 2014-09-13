@@ -124,7 +124,7 @@ nx.onload = function(){
         document.getElementById('deftones').style.display = 'block';
         setTimeout(function(){
           document.getElementById('deftones').style.display = 'none';
-        }, 4000)
+        }, 6000)
       }
     }
 
