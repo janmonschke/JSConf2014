@@ -92,8 +92,10 @@ nx.onload = function(){
     }
 
     button9.response = function(data){
-      if(data.press)
-        BufferHandler.play(whenipretend);
+      if(data.press){
+        BufferHandler.stop(trying);
+        BufferHandler.play(trying);
+      }
     }
 
     button10.response = function(data){
@@ -116,10 +118,19 @@ nx.onload = function(){
         BufferHandler.play(end);
       }
     }
-    //
-    // BufferHandler.play(gogo);
-    // BufferHandler.play(dommmdoo);
 
+    slider1.val = 0;
+    slider1.draw();
+
+    slider2.val = 1;
+    slider2.draw();
+
+    slider2.response = function(val){
+      var bg = BufferHandler.playing[jzbg];
+      if(bg){
+        bg.playbackRate.value = val;
+      }
+    }
 
   });
 }
