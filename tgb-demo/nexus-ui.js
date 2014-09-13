@@ -137,8 +137,8 @@ function button(target, transmitCommand) {
 
   this.init = function() {
 
-    self.width = self.canvas.width;
-    self.height = self.canvas.height;
+    self.width = self.canvas.width = .13 * window.innerWidth;
+    self.height = self.canvas.height = .49 * window.innerHeight;
 
     if (this.image) {
       imageButton = true;
@@ -189,11 +189,13 @@ function button(target, transmitCommand) {
           strokeStyle = self.colors.accent;
         }
 
-        beginPath();
-          arc(self.center.x, self.center.y, (Math.min(self.center.x, self.center.y)-self.lineWidth/2), 0, Math.PI*2, true);
-          fill();
-          stroke();
-        closePath();
+        fillRect(0,0,self.width,self.height)
+
+        // beginPath();
+        //   arc(self.center.x, self.center.y, (Math.min(self.center.x, self.center.y)-self.lineWidth/2), 0, Math.PI*2, true);
+        //   fill();
+        //   stroke();
+        // closePath();
 
         if (self.clicked && self.mode=="node") {
           globalAlpha = 0.2;

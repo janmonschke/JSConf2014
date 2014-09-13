@@ -21,6 +21,10 @@ nx.onload = function(){
 
   var end = 'audio/end.mp3';
 
+  nx.colorize("border", "#64686a");
+  nx.colorize("accent", "rgba(40, 142, 224, 0.79)");
+  nx.colorize("fill", "#818688");
+
   $.when.apply($, [ BufferHandler.load(guit1),
                     BufferHandler.load(guit2),
                     BufferHandler.load(guit3),
