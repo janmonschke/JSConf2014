@@ -3719,6 +3719,9 @@ function slider(target, transmitCommand) {
       self.hslider = true;
     }
 
+    self.width = self.canvas.width = window.innerWidth * .095;
+    self.height = self.canvas.height = window.innerHeight * .99;
+
     this.realSpace = { x: self.width-self.lineWidth*2, y: self.height-self.lineWidth*2 }
 
     if (this.canvas.getAttribute("label")!=null) {
