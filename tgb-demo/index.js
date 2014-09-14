@@ -101,6 +101,7 @@ nx.onload = function(){
 
     button10.response = function(data){
       if(data.press){
+        BufferHandler.stop(tiktak);
         BufferHandler.stop(trying);
         BufferHandler.play(trying);
         document.body.style.display = 'none';
